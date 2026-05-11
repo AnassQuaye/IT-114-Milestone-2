@@ -35,13 +35,13 @@ public class ClientHandler extends Thread {
             while ((input = in.readLine()) != null) {
                 if (this.currentRoom != null && this.player.isWordMaster()) {
                     currentRoom.setTargetWord(input);
-                    this.player.setWordMaster(false); // Reset after they submit
+                    this.player.setWordMaster(false);
                 } else if (this.currentRoom != null) {
                     System.out.println(this.player.getName() + " typed: " + input);
                 }
             }
         } catch (IOException e) {
-            System.out.println("A player disconnected."); // FIX: Corrected typo
+            System.out.println("A player disconnected."); 
         }
     }
 }
