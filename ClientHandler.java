@@ -33,11 +33,12 @@ public class ClientHandler extends Thread {
 
             String input;
             while ((input = in.readLine()) != null) {
-                if (this.currentRoom != null && this.player.isWordMaster()) {
-                    currentRoom.setTargetWord(input);
-                    this.player.setWordMaster(false);
-                } else if (this.currentRoom != null) {
-                    System.out.println(this.player.getName() + " typed: " + input);
+                if (this.currentRoom != null) {
+                    if (this.player.isWordMaster() && currentRoom.getTargetWord().isEmpty()) {
+                        currentRoom.setTargetWord(input);
+                    } else {
+                        currentRoom.checkGuess(this.player, input);
+                    }
                 }
             }
         } catch (IOException e) {
