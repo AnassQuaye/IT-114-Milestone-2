@@ -84,6 +84,7 @@ public class LexiconClientGUI {
         sendButton = new JButton("Send");
         try {
             ImageIcon sendIcon = new ImageIcon("src/resources/send_icon.png");
+            Image scaledImg = sendIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             sendButton.setIcon(sendIcon);
         } catch (Exception e) {}
         
@@ -98,7 +99,7 @@ public class LexiconClientGUI {
         cardPanel.add(gamePanel, "GAME");
 
         frame.add(cardPanel);
-        frame.setLocationRelativeTo(null); // Center on screen
+        frame.setLocationRelativeTo(null); 
         frame.setVisible(true);
 
         // --- ACTION LISTENERS ---
@@ -113,7 +114,7 @@ public class LexiconClientGUI {
         });
 
         sendButton.addActionListener(e -> sendMessage());
-        inputField.addActionListener(e -> sendMessage()); // Allows pressing 'Enter' to send
+        inputField.addActionListener(e -> sendMessage()); 
     }
 
     private void sendMessage() {
